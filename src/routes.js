@@ -6,24 +6,24 @@ import BotStudio from "views/admin/BotStudio";
 import BotVisitors from "views/admin/BotVisitors";
 import ReportView from "views/admin/ReportView";
 import Messages from "views/admin/Messages";
-import UpgradeMe from "views/admin/UpgradeMe";
-import Profile from "views/admin/profile";
+// import UpgradeMe from "views/admin/UpgradeMe";
+// import Profile from "views/admin/profile";
 import AddNodeForm from "./components/nodes/add-node"; 
 
 
 // Auth Imports
-import SignIn from "views/auth/SignIn";
+// import SignIn from "views/auth/SignIn";
 
 // Icon Imports
 import {
   MdHome,
   MdOutlineShoppingCart,
   MdBarChart,
-  MdPerson,
-  MdLock,
+  // MdPerson,
+  // MdLock,
   MdMessage,
   MdReportGmailerrorred,
-  MdOutlineUpgrade,
+  // MdOutlineUpgrade,
 } from "react-icons/md";
 
 const routes = [
@@ -63,27 +63,27 @@ const routes = [
     icon: <MdMessage className="h-6 w-6" />,
     component: <Messages />,
   },
-  {
-    name: "Upgrade Me",
-    layout: "/admin",
-    path: "upgrade me",
-    icon: <MdOutlineUpgrade className="h-6 w-6" />,
-    component: <UpgradeMe />,
-  },
-  {
-    name: "Profile",
-    layout: "/admin",
-    path: "profile",
-    icon: <MdPerson className="h-6 w-6" />,
-    component: <Profile />,
-  },
-  {
-    name: "Sign In",
-    layout: "/auth",
-    path: "sign-in",
-    icon: <MdLock className="h-6 w-6" />,
-    component: <SignIn />,
-  },
+  // {
+  //   name: "Upgrade Me",
+  //   layout: "/admin",
+  //   path: "upgrade me",
+  //   icon: <MdOutlineUpgrade className="h-6 w-6" />,
+  //   component: <UpgradeMe />,
+  // },
+  // {
+  //   name: "Profile",
+  //   layout: "/admin",
+  //   path: "profile",
+  //   icon: <MdPerson className="h-6 w-6" />,
+  //   component: <Profile />,
+  // },
+  // {
+  //   name: "Sign In",
+  //   layout: "/auth",
+  //   path: "sign-in",
+  //   icon: <MdLock className="h-6 w-6" />,
+  //   component: <SignIn />,
+  // },
   {
     name: "Add Node",
     layout: "/admin",
