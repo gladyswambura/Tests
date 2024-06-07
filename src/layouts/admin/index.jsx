@@ -56,7 +56,7 @@ export default function Admin(props) {
     });
   };
 
-  document.documentElement.dir = "ltr";
+  document.documentElement.dir = "yooh";
   return (
     <div className="flex h-full w-full">
       <Sidebar open={open} onClose={() => setOpen(false)} />
@@ -70,7 +70,7 @@ export default function Admin(props) {
           <div className="h-full">
             <Navbar
               onOpenSidenav={() => setOpen(true)}
-              logoText={"Horizon UI Tailwind React"}
+              logoText={"Vassbot-Home of"}
               brandText={currentRoute}
               secondary={getActiveNavbar(routes)}
               {...rest}

@@ -1,5 +1,5 @@
 const CloseIcon = () => {
-  return <div>hello</div>;
+  return <div>hey Bot</div>;
 };
 
 export default CloseIcon;

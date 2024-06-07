@@ -2,10 +2,14 @@ import React from "react";
 
 // Admin Imports
 import MainDashboard from "views/admin/default";
-import NFTMarketplace from "views/admin/marketplace";
+import BotStudio from "views/admin/BotStudio";
+import BotVisitors from "views/admin/BotVisitors";
+import ReportView from "views/admin/ReportView";
+import Messages from "views/admin/Messages";
+import UpgradeMe from "views/admin/UpgradeMe";
 import Profile from "views/admin/profile";
-import DataTables from "views/admin/tables";
-import RTLDefault from "views/rtl/default";
+import AddNodeForm from "./components/nodes/add-node"; 
+
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
@@ -17,30 +21,54 @@ import {
   MdBarChart,
   MdPerson,
   MdLock,
+  MdMessage,
+  MdReportGmailerrorred,
+  MdOutlineUpgrade,
 } from "react-icons/md";
 
 const routes = [
   {
-    name: "Main Dashboard",
+    name: "Dashboard",
     layout: "/admin",
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
   },
   {
-    name: "NFT Marketplace",
+    name: "Bot Studio",
     layout: "/admin",
-    path: "nft-marketplace",
+    path: "bot-studio",
     icon: <MdOutlineShoppingCart className="h-6 w-6" />,
-    component: <NFTMarketplace />,
+    component: <BotStudio />,
     secondary: true,
   },
   {
-    name: "Data Tables",
+    name: "Bot Visitors",
     layout: "/admin",
     icon: <MdBarChart className="h-6 w-6" />,
-    path: "data-tables",
-    component: <DataTables />,
+    path: "bot-visitors",
+    component: <BotVisitors />,
+  },
+  {
+    name: "Report View",
+    layout: "/admin",
+    icon: <MdReportGmailerrorred className="h-6 w-6" />,
+    path: "report-view",
+    component: <ReportView />,
+  },
+  {
+    name: "Messages",
+    layout: "/admin",
+    path: "messages",
+    icon: <MdMessage className="h-6 w-6" />,
+    component: <Messages />,
+  },
+  {
+    name: "Upgrade Me",
+    layout: "/admin",
+    path: "upgrade me",
+    icon: <MdOutlineUpgrade className="h-6 w-6" />,
+    component: <UpgradeMe />,
   },
   {
     name: "Profile",
@@ -57,11 +85,11 @@ const routes = [
     component: <SignIn />,
   },
   {
-    name: "RTL Admin",
-    layout: "/rtl",
-    path: "rtl",
-    icon: <MdHome className="h-6 w-6" />,
-    component: <RTLDefault />,
+    name: "Add Node",
+    layout: "/admin",
+    path: "bot-studio/add-node",
+    component: <AddNodeForm />, 
+    hidden: true, 
   },
 ];
 export default routes;

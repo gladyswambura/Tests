@@ -42,7 +42,6 @@ const CheckTable = (props) => {
         <div className="text-xl font-bold text-navy-700 dark:text-white">
           Check Table
         </div>
-
         <CardMenu />
       </header>
 
@@ -78,7 +77,7 @@ const CheckTable = (props) => {
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
                     let data = "";
-                    if (cell.column.Header === "NAME") {
+                    if (cell.column.Header === "STATEMENT") {
                       data = (
                         <div className="flex items-center gap-2">
                           <Checkbox />
@@ -87,7 +86,7 @@ const CheckTable = (props) => {
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header === "PROGRESS") {
+                    } else if (cell.column.Header === "BUGS") {
                       data = (
                         <div className="flex items-center">
                           <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -95,14 +94,14 @@ const CheckTable = (props) => {
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header === "QUANTITY") {
+                    } else if (cell.column.Header === "WEBSITE") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {" "}
                           {cell.value}{" "}
                         </p>
                       );
-                    } else if (cell.column.Header === "DATE") {
+                    } else if (cell.column.Header === "SERVER") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}

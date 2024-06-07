@@ -1,75 +1,76 @@
 export const columnsDataDevelopment = [
   {
-    Header: "NAME",
-    accessor: "name",
+    Header: "STATEMENT",
+    accessor: "STATEMENT",
   },
   {
-    Header: "TECH",
-    accessor: "tech",
+    Header: "BUGS",
+    accessor: "BUGS",
   },
   {
-    Header: "DATE",
-    accessor: "date",
+    Header: "WEBSITE",
+    accessor: "WEBSITE",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: "SERVER",
+    accessor: "SERVER",
   },
+  
 ];
 
 export const columnsDataCheck = [
   {
-    Header: "NAME",
-    accessor: "name",
+    Header: "STATEMENT",
+    accessor: "STATEMENT",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: " BUGS",
+    accessor: " BUGS",
   },
   {
-    Header: "QUANTITY",
-    accessor: "quantity",
+    Header: "WEBSITE",
+    accessor: "WEBSITE",
   },
   {
-    Header: "DATE",
-    accessor: "date",
+    Header: "SERVER",
+    accessor: "SERVER",
   },
 ];
 
 export const columnsDataColumns = [
   {
-    Header: "NAME",
-    accessor: "name",
+    Header: "STATEMENT",
+    accessor: "STATEMENT",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: " BUGS",
+    accessor: " BUGS",
   },
   {
-    Header: "QUANTITY",
-    accessor: "quantity",
+    Header: "WEBSITE",
+    accessor: "WEBSITE",
   },
   {
-    Header: "DATE",
-    accessor: "date",
+    Header: "SERVER",
+    accessor: "SERVER",
   },
 ];
 
 export const columnsDataComplex = [
   {
-    Header: "NAME",
-    accessor: "name",
+    Header: "STATEMENT",
+    accessor: "STATEMENT",
   },
   {
-    Header: "STATUS",
-    accessor: "status",
+    Header: "BUGS",
+    accessor: "BUGS",
   },
   {
-    Header: "DATE",
-    accessor: "date",
+    Header: "WEBSITE",
+    accessor: "WEBSITE",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: "SERVER",
+    accessor: "SERVER",
   },
 ];

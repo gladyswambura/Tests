@@ -1,6 +1,6 @@
 export const barChartDataDailyTraffic = [
   {
-    name: "Daily Traffic",
+    name: "No. of Emails",
     data: [20, 30, 40, 20, 45, 50, 30],
   },
 ];
@@ -26,7 +26,7 @@ export const barChartOptionsDailyTraffic = {
     theme: "dark",
   },
   xaxis: {
-    categories: ["00", "04", "08", "12", "14", "16", "18"],
+    categories: ["J", "F", "M", "A", "M", "J", "J","A","S","O","N","D"],
     show: false,
     labels: {
       show: true,
@@ -103,7 +103,7 @@ export const barChartOptionsDailyTraffic = {
 };
 
 export const pieChartOptions = {
-  labels: ["Your files", "System", "Empty"],
+  labels: ["No. of Tasks", "System", "Empty tasks"],
   colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
   chart: {
     width: "50px",
