@@ -55,7 +55,7 @@ const TabMenu = () => {
         <Box p="2" rounded="md" flex="1" mx="1" onMouseEnter={handleconversationMenuOpen} onMouseLeave={handleConversationMenuClose} position='relative'>
           <Menu isOpen={conversationMenuOpen}>
             <MenuButton as={Tab} _expanded={{ borderBottom: '2px solid rgb(29 78 216)', color: 'black' }} variant="unstyled">
-              Conversation Designers
+              Conversation 
             </MenuButton>
             <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' className='box-shadow box-shadow-hover'>
               <MenuItem>Designer Tool</MenuItem>
@@ -69,7 +69,7 @@ const TabMenu = () => {
         <Box p="2" rounded="md" flex="1" mx="1" onMouseEnter={handleBookingMenuOpen} onMouseLeave={handleBookingMenuClose} position='relative'>
           <Menu isOpen={bookingMenuOpen}>
             <MenuButton as={Tab} _expanded={{ borderBottom: '2px solid rgb(29 78 216)', color: 'black' }} variant="unstyled">
-              Booking Management
+              Administration
             </MenuButton>
             <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' className='box-shadow box-shadow-hover'>
               <MenuItem>Manage Users</MenuItem>
