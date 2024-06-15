@@ -31,7 +31,7 @@ const TabMenu = () => {
             <MenuButton as={Tab} _expanded={{ borderBottom: '2px solid rgb(29 78 216)', color: 'black' }} className="menu-button-hover" variant="unstyled">
               Node Maintenance
             </MenuButton>
-            <MenuList bg='white' boxShadow='xl' px='30' py='8' fontSize='1rem' className='box-shadow box-shadow-hover'>
+            <MenuList bg='white' boxShadow='xl' px='30' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
               <MenuItem>Add Node</MenuItem>
               <MenuItem>Review Node</MenuItem>
               <MenuItem>Add Bulk Nodes</MenuItem>
@@ -43,7 +43,7 @@ const TabMenu = () => {
             <MenuButton as={Tab} _expanded={{ borderBottom: '2px solid rgb(29 78 216)', color: 'black' }} variant="unstyled">
               Parameters Configuration
             </MenuButton>
-            <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' className='box-shadow box-shadow-hover'>
+            <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
               <MenuItem>Channel Configs</MenuItem>
               <MenuItem>Global Configs</MenuItem>
 
@@ -57,7 +57,7 @@ const TabMenu = () => {
             <MenuButton as={Tab} _expanded={{ borderBottom: '2px solid rgb(29 78 216)', color: 'black' }} variant="unstyled">
               Conversation 
             </MenuButton>
-            <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' className='box-shadow box-shadow-hover'>
+            <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
               <MenuItem>Designer Tool</MenuItem>
               <MenuItem>Add Conversation</MenuItem>
               <MenuItem>Review Conversation</MenuItem>
@@ -71,7 +71,7 @@ const TabMenu = () => {
             <MenuButton as={Tab} _expanded={{ borderBottom: '2px solid rgb(29 78 216)', color: 'black' }} variant="unstyled">
               Administration
             </MenuButton>
-            <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' className='box-shadow box-shadow-hover'>
+            <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
               <MenuItem>Manage Users</MenuItem>
               <MenuItem>Manage Functions</MenuItem>
               <MenuItem>Manage Rights</MenuItem>

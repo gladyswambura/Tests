@@ -25,5 +25,17 @@
     position: absolute;
     z-index: 10;
   }
+
+  .custom-checkbox .chakra-checkbox__control {
+    background-color: rgb(220 252 231);
+    border-color: rgb(220 252 231);
+    color: white;
+  }
+  
+  .custom-checkbox .chakra-checkbox__control[data-checked] {
+    background-color: rgb(7, 182, 68);
+    border-color: green;
+    padding: 1px;
+  }
   
   
