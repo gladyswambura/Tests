@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Tabs, TabList, Tab, Box, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import './styles.css'
 
 
@@ -33,7 +34,7 @@ const TabMenu = () => {
             </MenuButton>
             <MenuList bg='white' boxShadow='xl' px='30' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
               <MenuItem>Add Node</MenuItem>
-              <MenuItem>Review Node</MenuItem>
+               <MenuItem>Review Node</MenuItem>
               <MenuItem>Add Bulk Nodes</MenuItem>
             </MenuList>
           </Menu>
@@ -44,7 +45,7 @@ const TabMenu = () => {
               Parameters Configuration
             </MenuButton>
             <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
-              <MenuItem>Channel Configs</MenuItem>
+              <MenuItem> <Link  to='channel'>Channel Config</Link> </MenuItem>
               <MenuItem>Global Configs</MenuItem>
 
             </MenuList>
@@ -59,8 +60,8 @@ const TabMenu = () => {
             </MenuButton>
             <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
               <MenuItem>Designer Tool</MenuItem>
-              <MenuItem>Add Conversation</MenuItem>
-              <MenuItem>Review Conversation</MenuItem>
+              <MenuItem> <Link to='addConvo'>Add Conversation</Link> </MenuItem>
+              <MenuItem> <Link to='reviewConvo'>Review Conversation</Link> </MenuItem>
               <MenuItem>Templates</MenuItem>
             </MenuList>
           </Menu>
@@ -75,7 +76,7 @@ const TabMenu = () => {
               <MenuItem>Manage Users</MenuItem>
               <MenuItem>Manage Functions</MenuItem>
               <MenuItem>Manage Rights</MenuItem>
-              <MenuItem>Manage Bookings</MenuItem>
+              <MenuItem> <Link to='createBooking'>Manage Bookings</Link> </MenuItem>
             </MenuList>
           </Menu>
 
@@ -83,6 +84,7 @@ const TabMenu = () => {
       </TabList>
 
     </Tabs>
+    
   );
 };
 

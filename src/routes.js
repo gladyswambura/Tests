@@ -9,6 +9,10 @@ import Messages from "views/admin/Messages";
 // import UpgradeMe from "views/admin/UpgradeMe";
 // import Profile from "views/admin/profile";
 import AddNodeForm from "./components/nodes/add-node"; 
+import AddConvo from "views/admin/BotStudio/components/addConvo";
+import ReviewConvo from "views/admin/BotStudio/components/reviewConvo";
+import Channel from "views/admin/BotStudio/components/channel";
+import CreateBookings from "views/admin/BotStudio/components/createBookings";
 
 
 // Auth Imports
@@ -25,6 +29,7 @@ import {
   MdReportGmailerrorred,
   // MdOutlineUpgrade,
 } from "react-icons/md";
+import AddBooking from "views/admin/BotStudio/components/addBooking";
 
 const routes = [
   {
@@ -41,6 +46,41 @@ const routes = [
     icon: <MdOutlineShoppingCart className="h-6 w-6" />,
     component: <BotStudio />,
     secondary: true,
+  },
+  {
+    name: "Add Converastion",
+    layout: "/admin",
+    path: "bot-studio/addConvo",
+    component: <AddConvo />,
+    hidden: true, 
+  },
+  {
+    name: "Channel Configs",
+    layout: "/admin",
+    path: "bot-studio/channel",
+    component: <Channel />,
+    hidden: true, 
+  },
+  {
+    name: "Review Converastion",
+    layout: "/admin",
+    path: "bot-studio/reviewConvo",
+    component: <ReviewConvo />,
+    hidden: true, 
+  },
+  {
+    name: "Add Booking",
+    layout: "/admin",
+    path: "bot-studio/addBooking",
+    component: <AddBooking />,
+    hidden: true, 
+  },
+  {
+    name: "Create Booking",
+    layout: "/admin",
+    path: "bot-studio/createBooking",
+    component: <CreateBookings />,
+    hidden: true, 
   },
   {
     name: "Bot Visitors",
