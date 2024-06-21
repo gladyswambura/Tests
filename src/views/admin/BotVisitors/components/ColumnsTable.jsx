@@ -17,6 +17,7 @@ const ColumnsTable = ({ tableDataColumns }) => {
     {
       columns,
       data,
+      initialState: { pageSize: 12 }, // Set initial page size
     },
     useGlobalFilter,
     useSortBy,
@@ -29,9 +30,11 @@ const ColumnsTable = ({ tableDataColumns }) => {
     headerGroups,
     page,
     prepareRow,
-    initialState,
+    previousPage,
+    nextPage,
+    canPreviousPage,
+    canNextPage,
   } = tableInstance;
-  initialState.pageSize = 5;
 
   return (
     <Card extra={"w-full pb-10 p-4 h-full"}>
@@ -72,7 +75,15 @@ const ColumnsTable = ({ tableDataColumns }) => {
                       {...cell.getCellProps()}
                       key={index}
                     >
-                      {cell.render("Cell")}
+                      {/* Check if the cell value is a URL */}
+                      {cell.column.Header === "Picture" &&
+                      cell.value !== null &&
+                      cell.value !== "" ? (
+                        <img src={cell.value} alt="Profile" />
+                      ) : (
+                        // Render the cell value as text if it's not a URL
+                        cell.render("Cell")
+                      )}
                     </td>
                   ))}
                 </tr>
@@ -80,6 +91,28 @@ const ColumnsTable = ({ tableDataColumns }) => {
             })}
           </tbody>
         </table>
+      </div>
+
+      {/* Pagination controls */}
+      <div className="flex justify-between mt-4">
+        <button
+          onClick={() => previousPage()}
+          disabled={!canPreviousPage}
+          className={`${
+            !canPreviousPage && "cursor-not-allowed opacity-50"
+          } border border-gray-300 rounded-md px-4 py-2 text-gray-700 bg-white hover:bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-600 focus:outline-none`}
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => nextPage()}
+          disabled={!canNextPage}
+          className={`${
+            !canNextPage && "cursor-not-allowed opacity-50"
+          } border border-gray-300 rounded-md px-4 py-2 text-gray-700 bg-white hover:bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-600 focus:outline-none`}
+        >
+          Next
+        </button>
       </div>
     </Card>
   );

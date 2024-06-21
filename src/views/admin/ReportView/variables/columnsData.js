@@ -1,106 +1,102 @@
 export const columnsDataReport = [
   {
-    Header: "sn_no",
+    Header: "S/N",
     accessor: "sn_no",
   },
   {
-    Header: "channel",
+    Header: "Channel",
     accessor: "channel",
   },
   {
-    Header: "sender_id",
+    Header: "Sender ID",
     accessor: "sender_id",
   },
   {
-    Header: "consent",
-    accessor: "consent",
+    Header: "Consent",
+    accessor: "Consent",
   },
   {
-    Header: "full_name",
+    Header: "Full Name",
     accessor: "full_name",
   },
   {
-    Header: "gender",
+    Header: "Gender",
     accessor: "gender",
   },
   {
-    Header: "grad_status",
+    Header: "Graduation Status",
     accessor: "grad_status",
   },
   {
-    Header: "grad_date",
+    Header: "Graduation Date",
     accessor: "grad_date",
   },
   {
-    Header: "high_sc_grade",
+    Header: "High School Grade",
     accessor: "high_sc_grade",
   },
   {
-    Header: "uni_name",
+    Header: "University Name",
     accessor: "uni_name",
   },
   {
-    Header: "course",
+    Header: "Course",
     accessor: "course",
   },
   {
-    Header: "course_class",
+    Header: "Course Class",
     accessor: "course_class",
   },
   {
-    Header: "date_of_birth",
-    accessor: "date_of_birth",
+    Header: "Date of Birth",
+    accessor: "Date_of_birth",
   },
   {
-    Header: "fav_framework",
+    Header: "Favorite Framework",
     accessor: "fav_framework",
   },
   {
-    Header: "why_fav",
+    Header: "Why Favorite Framework",
     accessor: "why_fav",
   },
   {
-    Header: "fav_progl",
+    Header: "Favorite Programming Language",
     accessor: "fav_progl",
   },
   {
-    Header: "pyth_rank",
+    Header: "Python Rank",
     accessor: "pyth_rank",
   },
   {
-    Header: "js_rank",
+    Header: "JavaScript Rank",
     accessor: "js_rank",
   },
   {
-    Header: "css_rank",
+    Header: "CSS Rank",
     accessor: "css_rank",
   },
   {
-    Header: "related_project",
+    Header: "Related Project",
     accessor: "related_project",
   },
   {
-    Header: "salary_expected",
+    Header: "Expected Salary",
     accessor: "salary_expected",
   },
   {
-    Header: "place_of_work",
+    Header: "Place of Work",
     accessor: "place_of_work",
   },
   {
-    Header: "mobile_number",
+    Header: "Mobile Number",
     accessor: "mobile_number",
   },
   {
-    Header: "email",
+    Header: "Email",
     accessor: "email",
   },
   {
-    Header: "ux_rank",
+    Header: "UX Rank",
     accessor: "ux_rank",
-  },
-  {
-    Header: "created_on",
-    accessor: "created_on",
   },
 ];

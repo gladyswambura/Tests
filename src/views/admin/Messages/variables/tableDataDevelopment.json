@@ -4,12 +4,12 @@
     "accessor": "tmstamp"
   },
   {
-    "Header": "VIA",
+    "Header": "Via",
     "accessor": "channel"
     },
   {
     "Header": "User ID",
-    "accessor": "user_id"
+    "accessor": "sender"
   },
   {
     "Header": "MESSAGE",
@@ -22,9 +22,5 @@
   {
     "Header": "ACCURACY",
     "accessor": "resp_accuracy" 
-  },
-  {
-    "Header": "EDIT",
-    "accessor": "<a href={`/edit-message/${row.original.id}`}>Edit</a>"
   }
 ]

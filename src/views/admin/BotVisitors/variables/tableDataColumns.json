@@ -1,7 +1,7 @@
 [
   {
     "Header": "Added On",
-    "accessor": "timestamp"
+    "accessor": "created_on"
   },
   {
     "Header": "Country",
@@ -26,5 +26,9 @@
   {
     "Header": "Comments",
     "accessor": "user_comments"
+  },
+  {
+    "Header": "Contact",
+    "accessor": "mobile_no"
   }
 ]

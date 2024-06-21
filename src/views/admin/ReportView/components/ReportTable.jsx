@@ -8,7 +8,7 @@ import {
   useTable,
 } from "react-table";
 
-const ReportTable = ({ columnsData, tableData }) => {
+const ReportTable = ({ columnsData, tableData, reportName, switchForms, handleFormSwitch }) => {
   const columns = React.useMemo(() => columnsData, [columnsData]);
   const data = React.useMemo(() => tableData, [tableData]);
 
@@ -37,15 +37,22 @@ const ReportTable = ({ columnsData, tableData }) => {
       <div className="flex items-center justify-between mb-4">
         <div className="flex flex-col">
           <div className="text-xl font-bold text-navy-700 dark:text-white">
-            JUNIOR FRONT-END ENGINEER
+            {reportName}
           </div>
           <div className="flex items-center">
             <button className="bg-blue-500 text-white px-3 py-1 rounded mr-2">
               Export to Excel
             </button>
-            <select className="bg-gray-200 px-3 py-1 rounded">
-              <option value="data_source1">Choose Data Source</option>
-              <option value="data_source2">Choose Form</option>
+            <select
+              className="bg-gray-200 px-3 py-1 rounded"
+              onChange={e => handleFormSwitch(e.target.value)}
+            >
+              <option value="">Select Form</option>
+              {Object.entries(switchForms).map(([key, value]) => (
+                <option key={key} value={key}>
+                  {value}
+                </option>
+              ))}
             </select>
           </div>
         </div>

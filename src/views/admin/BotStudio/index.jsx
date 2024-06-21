@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoCreateOutline, IoDocuments } from "react-icons/io5";
 import { MdAddCircle, MdBarChart, MdDomain } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import Widget from "components/widget/Widget";
 import AddNodeForm from '../../../components/nodes/add-node';
 import AddBulkNodeForm from '../../../components/nodes/add-bulk-node';
 import ReviewNodesForm from '../../../components/nodes/review-nodes';
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { Tabs, TabList, Tab } from '@chakra-ui/react'
 
 
 const BotStudio = () => {

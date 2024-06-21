@@ -1,7 +1,7 @@
 export const columnsDataColumns = [
   {
     Header: "Added On",
-    accessor: "city_town", 
+    accessor: "created_on", 
   },
   {
     Header: "Country",
@@ -26,5 +26,9 @@ export const columnsDataColumns = [
   {
     Header: "Comments",
     accessor: "user_comments",
+  },
+  {
+    Header: "Contact",
+    accessor: "mobile_no",
   },
 ];

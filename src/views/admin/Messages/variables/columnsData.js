@@ -1,15 +1,15 @@
 export const columnsDataDevelopment = [
   {
     Header: "TIMESTAMP",
-    accessor: "timstamp", 
+    accessor: "tmstamp", 
   },
   {
-    Header: "VIA",
+    Header: "Via",
     accessor:"channel",
   },
   {
     Header: "USER ID",
-    accessor: "user_id",
+    accessor: "sender",
   },
   {
     Header: "MESSAGE",
@@ -22,9 +22,5 @@ export const columnsDataDevelopment = [
   {
     Header: "ACCURACY",
     accessor: "resp_accuracy",
-  },
-  {
-    Header: "EDIT",
-    accessor: "", //take you to review nodes
-    },
+  }
 ];
