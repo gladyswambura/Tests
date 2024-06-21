@@ -6,6 +6,10 @@ import CustomForm from './customForm';
 const AddBooking = () => {
     const [formData, setFormData] = useState({})
 
+    const selectedOption = ({booking: ''})
+
+    const [selectData, setSelectData] = useState(selectedOption)
+
     const handleChange = (name, value) => {
         setFormData((prevData) => ({
           ...prevData,
@@ -15,8 +19,17 @@ const AddBooking = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('Form Submitted:', formData)
+        const fullForm = {...formData, ...selectData}
+        console.log('Form Submitted:', fullForm)
     }
+
+    const handleSelect = (e) => {
+        const { name, value } = e.target;
+        setSelectData((prevData) => ({
+          ...prevData,
+          [name]: value,
+        }));
+      };
 
 
     const formFields = [
@@ -37,9 +50,9 @@ const AddBooking = () => {
 
                 <CustomForm formFields={formFields} onChange={handleChange} onSubmit={handleSubmit} formData={formData} />
 
-                <Select iconColor='transparent' placeholder='Select Item Type' className='p-2 w-3/12 border border-green-500 rounded-lg bg-white mb-7'>
-                    <option value='option1'>Event Booking</option>
-                    <option value='option2'>Property Booking</option>
+                <Select name='booking' value='selectData.value' onChange={handleSelect} iconColor='transparent' placeholder='Select Item Type' className='p-2 w-3/12 border border-green-500 rounded-lg bg-white mb-7'>
+                    <option value='Event Bookingn'>Event Booking</option>
+                    <option value='Property Booking'>Property Booking</option>
                 </Select>
 
                 <Button type='submit' className='bg-green-200 py-2 px-6 text-lg rounded-lg hover:bg-green-500'>Save Item</Button>
