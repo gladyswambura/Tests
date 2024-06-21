@@ -1,0 +1,41 @@
+.box-shadow {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+  }
+  
+  .box-shadow-expanded {
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .box-shadow-hover:hover {
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .menu-item-hover:hover {
+    color: blue !important;
+  }
+  
+  .menu-button-hover:hover + .menu-list-hover,
+  .menu-list-hover:hover {
+    display: block;
+  }
+  
+  .menu-list-hover {
+    display: none;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .custom-checkbox .chakra-checkbox__control {
+    background-color: rgb(220 252 231);
+    border-color: rgb(220 252 231);
+    color: white;
+  }
+  
+  .custom-checkbox .chakra-checkbox__control[data-checked] {
+    background-color: rgb(7, 182, 68);
+    border-color: green;
+    padding: 1px;
+  }
+  
+  
