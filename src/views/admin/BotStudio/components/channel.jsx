@@ -7,6 +7,10 @@ const Channel = () => {
 
     const [formData, setFormData] = useState({})
 
+    const selectedOption = {params: '', socials: ''}
+
+    const [selectData, setSelectData] = useState(selectedOption)
+
     const handleChange = (name, value) => {
         setFormData((prevData) => ({
           ...prevData,
@@ -16,8 +20,17 @@ const Channel = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('Form Submitted:', formData)
+        const fullForm = {...formData, ...selectData}
+        console.log('Form Submitted:', fullForm)
     }
+
+    const handleSelect = (e) => {
+        const { name, value } = e.target;
+        setSelectData((prevData) => ({
+          ...prevData,
+          [name]: value,
+        }));
+      };
 
 
     const formFields = [
@@ -25,20 +38,21 @@ const Channel = () => {
         { name: 'desc', label: 'Description', type:'text' }
     ]
 
+    
     return (
 
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">
 
             <form onSubmit={handleSubmit}>
                 
-                <Select iconColor='transparent' placeholder='Choose Parameter Type' className='p-2 w-3/12 border border-green-500 rounded-lg bg-white mb-7'>
-                    <option value='option1'>Client Parameters</option>
-                    <option value='option2'>Global Parameters</option>
+                <Select name='params' value='selectData.params' onChange={handleSelect} iconColor='transparent' placeholder='Choose Parameter Type' className='p-2 w-3/12 border border-green-500 rounded-lg bg-white mb-7'>
+                    <option value='Client Parameters'>Client Parameters</option>
+                    <option value='Global Parameters'>Global Parameters</option>
                 </Select>
 
-                <Select iconColor='transparent' placeholder='Select Channel' className='p-2 w-3/12 border border-green-500 rounded-lg bg-white mb-7'>
-                    <option value='option1'>Website</option>
-                    <option value='option2'>Facebook</option>
+                <Select name='socials' value='selectData.socials' onChange={handleSelect} iconColor='transparent' placeholder='Select Channel' className='p-2 w-3/12 border border-green-500 rounded-lg bg-white mb-7'>
+                    <option value='Website'>Website</option>
+                    <option value='Facebook'>Facebook</option>
                     <option value='option2'>Twitter</option>
                     <option value='option2'>Slack</option>
                     <option value='option2'>Instagram</option>
