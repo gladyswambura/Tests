@@ -4,6 +4,7 @@ import Navbar from "components/navbar";
 import Sidebar from "components/sidebar";
 import Footer from "components/footer/Footer";
 import routes from "routes.js";
+import Channel from "views/admin/BotStudio/components/channel";
 
 export default function Admin(props) {
   const { ...rest } = props;
@@ -70,7 +71,7 @@ export default function Admin(props) {
           <div className="h-full">
             <Navbar
               onOpenSidenav={() => setOpen(true)}
-              logoText={"Vassbot-Home of"}
+              logoText={"Home of Bots"}
               brandText={currentRoute}
               secondary={getActiveNavbar(routes)}
               {...rest}
@@ -78,11 +79,16 @@ export default function Admin(props) {
             <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
               <Routes>
                 {getRoutes(routes)}
+                <Route
+                  path="/admin/bot-studio/channel"
+                  element={<Channel />}
+                />
 
                 <Route
                   path="/"
                   element={<Navigate to="/admin/default" replace />}
                 />
+                
               </Routes>
             </div>
             <div className="p-3">

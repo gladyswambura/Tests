@@ -1,28 +1,34 @@
 import React, { useState } from 'react';
 import { Tabs, TabList, Tab, Box, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
-import './styles.css'
-
+import { Routes, Route, useNavigate } from 'react-router-dom'; 
+import './styles.css';
+import Channel from './components/channel';
+import AddConvo from './components/addConvo';
+import ReviewConvo from './components/reviewConvo';
+import AddBooking from './components/addBooking';
 
 const TabMenu = () => {
+  const [nodeMenuOpen, setNodeMenuOpen] = useState(false);
+  const [paramsMenuOpen, setParamsMenuOpen] = useState(false);
+  const [conversationMenuOpen, setConversationMenuOpen] = useState(false);
+  const [bookingMenuOpen, setBookingMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const [nodeMenuOpen, setNodeMenuOpen] = useState(false)
-  const [paramsMenuOpen, setParamsMenuOpen] = useState(false)
-  const [conversationMenuOpen, setConversationMenuOpen] = useState(false)
-  const [bookingMenuOpen, setBookingMenuOpen] = useState(false)
+  const handleNodeMenuOpen = () => setNodeMenuOpen(true);
+  const handleNodeMenuClose = () => setNodeMenuOpen(false);
 
-  const handleNodeMenuOpen = () => setNodeMenuOpen(true)
-  const handleNodeMenuClose = () => setNodeMenuOpen(false)
+  const handleParamsMenuOpen = () => setParamsMenuOpen(true);
+  const handleParamsMenuClose = () => setParamsMenuOpen(false);
 
-  const handleParamsMenuOpen = () => setParamsMenuOpen(true)
-  const handleParamsMenuClose = () => setParamsMenuOpen(false)
+  const handleConversationMenuOpen = () => setConversationMenuOpen(true);
+  const handleConversationMenuClose = () => setConversationMenuOpen(false);
 
-  const handleconversationMenuOpen = () => setConversationMenuOpen(true)
-  const handleConversationMenuClose = () => setConversationMenuOpen(false)
+  const handleBookingMenuOpen = () => setBookingMenuOpen(true);
+  const handleBookingMenuClose = () => setBookingMenuOpen(false);
 
-  const handleBookingMenuOpen = () => setBookingMenuOpen(true)
-  const handleBookingMenuClose = () => setBookingMenuOpen(false)
-
+  const handleMenuItemClick = (path) => {
+    navigate(path);
+  };
 
   return (
     <Tabs variant="unstyled">
@@ -33,9 +39,8 @@ const TabMenu = () => {
               Node Maintenance
             </MenuButton>
             <MenuList bg='white' boxShadow='xl' px='30' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
-              <MenuItem>Add Node</MenuItem>
-               <MenuItem>Review Node</MenuItem>
-              <MenuItem>Add Bulk Nodes</MenuItem>
+              <MenuItem onClick={() => handleMenuItemClick('/admin/bot-studio/review-Node')}>Review Node</MenuItem>
+              <MenuItem onClick={() => handleMenuItemClick('/admin/bot-studio/add-Bulk-Nodes')}>Add Bulk Nodes</MenuItem>
             </MenuList>
           </Menu>
         </Box>
@@ -45,28 +50,24 @@ const TabMenu = () => {
               Parameters Configuration
             </MenuButton>
             <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
-              <MenuItem> <Link  to='channel'>Channel Config</Link> </MenuItem>
+              <MenuItem onClick={() => handleMenuItemClick('/admin/bot-studio/channel')}>Channel Config</MenuItem>
               <MenuItem>Global Configs</MenuItem>
-
             </MenuList>
           </Menu>
-
         </Box>
-
-        <Box p="2" rounded="md" flex="1" mx="1" onMouseEnter={handleconversationMenuOpen} onMouseLeave={handleConversationMenuClose} position='relative'>
+        <Box p="2" rounded="md" flex="1" mx="1" onMouseEnter={handleConversationMenuOpen} onMouseLeave={handleConversationMenuClose} position='relative'>
           <Menu isOpen={conversationMenuOpen}>
             <MenuButton as={Tab} _expanded={{ borderBottom: '2px solid rgb(29 78 216)', color: 'black' }} variant="unstyled">
-              Conversation 
+              Conversation
             </MenuButton>
             <MenuList bg='white' boxShadow='xl' px='50' py='8' fontSize='1rem' zIndex='1' className='box-shadow box-shadow-hover'>
               <MenuItem>Designer Tool</MenuItem>
-              <MenuItem> <Link to='addConvo'>Add Conversation</Link> </MenuItem>
-              <MenuItem> <Link to='reviewConvo'>Review Conversation</Link> </MenuItem>
+              <MenuItem onClick={() => handleMenuItemClick('/admin/bot-studio/add-convo')}>Add Conversation</MenuItem>
+              <MenuItem onClick={() => handleMenuItemClick('/admin/bot-studio/review-convo')}>Review Conversation</MenuItem>
               <MenuItem>Templates</MenuItem>
             </MenuList>
           </Menu>
         </Box>
-
         <Box p="2" rounded="md" flex="1" mx="1" onMouseEnter={handleBookingMenuOpen} onMouseLeave={handleBookingMenuClose} position='relative'>
           <Menu isOpen={bookingMenuOpen}>
             <MenuButton as={Tab} _expanded={{ borderBottom: '2px solid rgb(29 78 216)', color: 'black' }} variant="unstyled">
@@ -76,15 +77,22 @@ const TabMenu = () => {
               <MenuItem>Manage Users</MenuItem>
               <MenuItem>Manage Functions</MenuItem>
               <MenuItem>Manage Rights</MenuItem>
-              <MenuItem> <Link to='createBooking'>Manage Bookings</Link> </MenuItem>
+              <MenuItem onClick={() => handleMenuItemClick('/admin/bot-studio/create-bookings')}>Manage Bookings</MenuItem>
             </MenuList>
           </Menu>
-
         </Box>
       </TabList>
 
+      <Routes> {/* Wrap Routes around all Route components */}
+        {/* Render Routes for each tab */}
+        {/* <Route path="/admin/bot-studio/review-Node" element={<ReviewNodeComponent />} />
+        <Route path="/admin/bot-studio/add-Bulk-Nodes" element={<AddBulkNodesComponent />} /> */}
+        <Route path="/admin/bot-studio/channel" element={<Channel />} />
+        <Route path="/admin/bot-studio/add-convo" element={<AddConvo />} />
+        <Route path="/admin/bot-studio/review-convo" element={<ReviewConvo />} />
+        <Route path="/admin/bot-studio/create-bookings" element={<AddBooking />} />
+      </Routes>
     </Tabs>
-    
   );
 };
 

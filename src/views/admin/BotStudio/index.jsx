@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Box, FormControl, FormLabel, Select, Textarea } from "@chakra-ui/react";
-import { Checkbox, Stack } from "@chakra-ui/react";
+import React from "react";
+import {  FormControl, FormLabel, Select, Textarea } from "@chakra-ui/react";
+import { Checkbox} from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import TabMenu from "./tabs";
 import './styles.css'
