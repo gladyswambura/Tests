@@ -6,6 +6,34 @@ import Footer from "components/footer/Footer";
 import routes from "routes.js";
 import Channel from "views/admin/BotStudio/components/channel";
 
+export const renderRoutes = (routes) => {
+  return routes.map((route, idx) => {
+    if (route.children) {
+      return (
+        <Route
+          key={idx}
+          path={route.layout + "/" + route.path}
+          element={route.component}
+        >
+          {route.children && route.children.map((child, index) => (
+            <Route key={index} path={child.path} element={child.component} />
+      //       <Route key={index} path={`/admin/bot-studio/channel`} element={<Admin>HSHCHCD</Admin>}
+      // />
+          ))}
+        </Route>
+      );
+    } else {
+      return (
+        <Route
+          key={idx}
+          path={route.layout + "/" + route.path}
+          element={route.component}
+        />
+      );
+    }
+  });
+};
+
 export default function Admin(props) {
   const { ...rest } = props;
   const location = useLocation();
@@ -48,11 +76,24 @@ export default function Admin(props) {
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
+        if (prop.children) {
+          return (
+            <Route path={`/${prop.path}`} element={prop.component} key={key}>
+              {prop.children && prop.children.map((child, index) => (
+                <Route
+                  path={`${child.path}`}
+                  element={child.component}
+                  key={index}
+                />
+              ))}
+            </Route>
+          );
+        }
+
         return (
           <Route path={`/${prop.path}`} element={prop.component} key={key} />
         );
       } else {
-        return null;
       }
     });
   };
@@ -77,19 +118,16 @@ export default function Admin(props) {
               {...rest}
             />
             <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
-              <Routes>
+              {/* <Routes>
                 {getRoutes(routes)}
-                <Route
-                  path="/admin/bot-studio/channel"
-                  element={<Channel />}
-                />
+                <Route path="/admin/bot-studio/channel" element={<Channel />} />
 
-                <Route
+                <Routes
                   path="/"
                   element={<Navigate to="/admin/default" replace />}
                 />
-                
-              </Routes>
+              </Routes> */}
+              {props.children}
             </div>
             <div className="p-3">
               <Footer />

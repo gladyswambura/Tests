@@ -2,14 +2,20 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AdminLayout from "layouts/admin";
 import AuthLayout from "layouts/auth";
+import { getRoutes } from "layouts/auth";
+import routes from "routes";
+import { renderRoutes } from "layouts/admin";
+import Admin from "layouts/admin";
 const App = () => {
   return (
     <Routes>
+      
+      {renderRoutes(routes)}
+
       <Route path="auth/*" element={<AuthLayout />} />
       <Route path="admin/*" element={<AdminLayout />} />
       <Route path="/" element={<Navigate to="/admin" replace />} />
     </Routes>
-    
   );
 };
 

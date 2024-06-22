@@ -30,6 +30,7 @@ import {
   MdReportGmailerrorred,
   MdOutlineUpgrade,
 } from "react-icons/md";
+import Admin from "layouts/admin";
 
 const routes = [
   {
@@ -37,52 +38,161 @@ const routes = [
     layout: "/admin",
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
-    component: <MainDashboard />,
+    component: (
+      <Admin>
+        <MainDashboard />
+      </Admin>
+    ),
+  },
+
+  {
+    name: "channel",
+    layout: "/admin",
+    show: true,
+    path: "bot-studio/channel",
+    icon: <MdOutlineShoppingCart className="h-6 w-6" />,
+    component: (
+      <Admin>
+        <Channel />
+      </Admin>
+    ),
   },
   {
-    name: "Channel",
+    name: "channel",
     layout: "/admin",
-    path: "channel",
-    icon: <MdHome className="h-6 w-6" />,
-    component: <Channel />,
+    show: true,
+    path: "bot-studio/add-booking",
+    component: (
+      <Admin>
+        <AddBooking />
+      </Admin>
+    ),
+  },
+  {
+    name: "channel",
+    layout: "/admin",
+    show: true,
+    path: "bot-studio/add-convo",
+    component: (
+      <Admin>
+        <AddConvo />
+      </Admin>
+    ),
+  },
+
+  {
+    name: "channel",
+    layout: "/admin",
+    show: true,
+    path: "bot-studio/create-bookings",
+    component: (
+      <Admin>
+        <CreateBookings />
+      </Admin>
+    ),
+  },
+  {
+    name: "channel",
+    layout: "/admin",
+    show: true,
+    path: "bot-studio/custom-form",
+    component: (
+      <Admin>
+        <CustomForm />
+      </Admin>
+    ),
+  },
+  {
+    name: "channel",
+    layout: "/admin",
+    show: true,
+    path: "bot-studio/development-table",
+    component: (
+      <Admin>
+        <DevelopmentTable />
+      </Admin>
+    ),
+  },
+  {
+    name: "channel",
+    layout: "/admin",
+    show: true,
+    path: "bot-studio/review-convo",
+    component: (
+      <Admin>
+        <ReviewConvo />
+      </Admin>
+    ),
   },
   {
     name: "Bot Studio",
     layout: "/admin",
-    path: "bot-studio/",
+    path: "bot-studio",
     icon: <MdOutlineShoppingCart className="h-6 w-6" />,
-    component: <BotStudio />,
+    component: (
+      <Admin>
+        <BotStudio />
+      </Admin>
+    ),
     secondary: true,
     children: [
-      {
-        path: "add-booking",
-        component: <AddBooking />,
-      },
-      {
-        path: "add-convo",
-        component: <AddConvo />,
-      },
-      {
-        name: "channel",
-        path: "/channel",
-        component: <Channel />,
-      },
-      {
-        path: "create-bookings",
-        component: <CreateBookings />,
-      },
-      {
-        path: "custom-form",
-        component: <CustomForm />,
-      },
-      {
-        path: "development-table",
-        component: <DevelopmentTable />,
-      },
-      {
-        path: "review-convo",
-        component: <ReviewConvo />,
-      },
+      // {
+      //   path: "add-booking",
+      //   component: (
+      //     <Admin>
+      //       <AddBooking />
+      //     </Admin>
+      //   ),
+      // },
+      // {
+      //   path: "add-convo",
+      //   component: (
+      //     <Admin>
+      //       <AddConvo />
+      //     </Admin>
+      //   ),
+      // },
+      // // {
+      // //   name: "channel",
+      // //   path: "channel",
+      // //   component: (
+      // //     <Admin>
+      // //       <Channel />
+      // //     </Admin>
+      // //   ),
+      // // },
+      // {
+      //   path: "create-bookings",
+      //   component: (
+      //     <Admin>
+      //       <CreateBookings />
+      //     </Admin>
+      //   ),
+      // },
+      // {
+      //   path: "custom-form",
+      //   component: (
+      //     <Admin>
+      //       <CustomForm />
+      //     </Admin>
+      //   ),
+      // },
+      // {
+      //   path: "development-table",
+      //   component: (
+      //     <Admin>
+      //       <DevelopmentTable />
+      //     </Admin>
+      //   ),
+      // },
+      // {
+      //   path: "review-convo",
+      //   component: (
+      //     <Admin>
+      //       <ReviewConvo />
+      //     </Admin>
+      //   ),
+      // },
     ],
   },
   {
@@ -90,35 +200,55 @@ const routes = [
     layout: "/admin",
     icon: <MdBarChart className="h-6 w-6" />,
     path: "bot-visitors",
-    component: <BotVisitors />,
+    component: (
+      <Admin>
+        <BotVisitors />
+      </Admin>
+    ),
   },
   {
     name: "Report View",
     layout: "/admin",
     icon: <MdReportGmailerrorred className="h-6 w-6" />,
     path: "report-view",
-    component: <ReportView />,
+    component: (
+      <Admin>
+        <ReportView />
+      </Admin>
+    ),
   },
   {
     name: "Messages",
     layout: "/admin",
     path: "messages",
     icon: <MdMessage className="h-6 w-6" />,
-    component: <Messages />,
+    component: (
+      <Admin>
+        <Messages />
+      </Admin>
+    ),
   },
   {
     name: "Upgrade Me",
     layout: "/admin",
     path: "upgrade-me",
     icon: <MdOutlineUpgrade className="h-6 w-6" />,
-    component: <UpgradeMe />,
+    component: (
+      <Admin>
+        <UpgradeMe />
+      </Admin>
+    ),
   },
   {
     name: "Profile",
     layout: "/admin",
     path: "profile",
     icon: <MdPerson className="h-6 w-6" />,
-    component: <Profile />,
+    component: (
+      <Admin>
+        <Profile />
+      </Admin>
+    ),
   },
   {
     name: "Sign In",
