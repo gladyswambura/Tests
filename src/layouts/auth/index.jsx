@@ -56,6 +56,7 @@ export default function Auth() {
                     className="absolute flex h-full w-full items-end justify-center bg-cover bg-center lg:rounded-bl-[120px] xl:rounded-bl-[200px]"
                     style={{ backgroundImage: `url(${authImg})` }}
                   />
+                  jjjjjj
                 </div>
               </div>
               <Footer />

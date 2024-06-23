@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import axios from '../../axiosConfig'; 
-import InputField from 'components/fields/InputField';
-import { FcGoogle } from 'react-icons/fc';
-import Checkbox from 'components/checkbox';
+import React, { useState } from "react";
+import axios from "../../axiosConfig";
+import InputField from "components/fields/InputField";
+import { FcGoogle } from "react-icons/fc";
+import Checkbox from "components/checkbox";
+import authImg from "../../assets/img/auth/auth.png";
 
 export default function SignIn() {
-  const [username, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSignIn = async () => {
     try {
-      const response = await axios.post('/login', {
+      const response = await axios.post("/login", {
         username,
         password,
       });
@@ -20,32 +21,28 @@ export default function SignIn() {
       const { access_token } = response.data;
 
       if (rememberMe) {
-        localStorage.setItem('access_token', access_token);
+        localStorage.setItem("access_token", access_token);
       } else {
-        sessionStorage.setItem('access_token', access_token);
+        sessionStorage.setItem("access_token", access_token);
       }
-      console.log('Login successful', access_token);
+      console.log("Login successful", access_token);
     } catch (err) {
-      console.error('Login error:', err);
-      setError('Failed to sign in. Please check your credentials.');
+      console.error("Login error:", err);
+      setError("Failed to sign in. Please check your credentials.");
     }
   };
 
   return (
-    <div className="flex h-screen items-center justify-center px-4">
+    <div className="max-w-screen flex h-screen items-center justify-center lg:justify-between px-4">
       {/* Sign in section */}
-      <div className="w-full max-w-md flex-col items-center p-6 bg-white shadow-md rounded-lg">
+      <div className="w-full max-w-md flex-1 flex-col items-center rounded-lg bg-white p-6 shadow-md">
         <h4 className="mb-2.5 text-4xl font-bold text-navy-700 dark:text-white">
           Sign In
         </h4>
         <p className="mb-9 text-base text-gray-600 dark:text-gray-400">
           Enter your username and password to sign in!
         </p>
-        {error && (
-          <p className="mb-4 text-red-500">
-            {error}
-          </p>
-        )}
+        {error && <p className="mb-4 text-red-500">{error}</p>}
         <div className="mb-6 flex h-[50px] w-full items-center justify-center gap-2 rounded-xl bg-lightPrimary hover:cursor-pointer dark:bg-navy-800">
           <div className="rounded-full text-xl">
             <FcGoogle />
@@ -85,7 +82,10 @@ export default function SignIn() {
         {/* Checkbox */}
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center">
-            <Checkbox checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} />
+            <Checkbox
+              checked={rememberMe}
+              onChange={() => setRememberMe(!rememberMe)}
+            />
             <p className="ml-2 text-sm font-medium text-navy-700 dark:text-white">
               Keep me logged In
             </p>
@@ -114,6 +114,10 @@ export default function SignIn() {
             Create an account
           </a>
         </div>
+      </div>
+
+      <div className="hidden lg:block">
+        <img src={authImg} alt="Sign In" />
       </div>
     </div>
   );
