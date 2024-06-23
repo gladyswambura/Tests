@@ -95,9 +95,20 @@ const Channel = () => {
           Save Parameter
         </Button>
 
-      </form>
-    </div>
+                <Select name='socials' value={selectData.socials} onChange={handleSelect} iconColor='transparent' placeholder='Select Channel' className='p-2 w-3/12 border border-green-500 rounded-lg bg-white mb-7'>
+                    <option value='Website'>Website</option>
+                    <option value='Facebook'>Facebook</option>
+                    <option value='option2'>Twitter</option>
+                    <option value='option2'>Slack</option>
+                    <option value='option2'>Instagram</option>
+                    <option value='option2'>WhatsApp</option>
+                    <option value='option2'>Telegram</option>
+                    <option value='option2'>All Channels</option>
+                </Select>
+
+        </form>
+        </div>
   );
-};
+}
 
 export default Channel;
