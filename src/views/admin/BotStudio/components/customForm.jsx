@@ -21,14 +21,14 @@ const CustomForm = ({ formFields, formData, onChange, onSubmit }) => {
         <VStack spacing='4' align='stretch'>
             {formFields.map((field) => (
                 <FormControl key={field.name} id={field.name}>
-                    <FormLabel> {field.label} </FormLabel>
+                    <FormLabel className='text-lg mb-1 font-normal'> {field.label} </FormLabel>
                     <Input 
                     type={field.type || ''}
                     name={field.name}
                     placeholder={field.placeholder || ''}
                     value={formData[field.name] || ''}
                     onChange={handleChange}
-                    className='border border-green-500 w-1/2 p-2 rounded-lg mb-7 text-lg'/>
+                    className='border border-green-500 w-1/2 p-2 rounded-lg mb-7 text-lg focus:border-green-500'/>
                 </FormControl>
             ))}
             {/* <Button type='submit' colorScheme='green'>Submit</Button> */}

@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { Select } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/react'
 import CustomForm from './customForm'
-import { type } from '@testing-library/user-event/dist/type'
 
 const CreateBookings = () => {
 
     const [formData, setFormData] = useState([])
+    const [selectData, setSelectData] = useState({booking: ''})
 
     const handleChange = (name, value) => {
         setFormData((prevData) => ({
@@ -17,7 +17,16 @@ const CreateBookings = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('Form Submitted:', formData)
+        const fullForm = {...formData, ...selectData}
+        console.log('Form Submitted:', fullForm)
+    }
+
+    const handleSelect = (e) => {
+        const {name, value} = e.target
+        setSelectData(prevData => ({
+            ...prevData, 
+            [name]: value
+        }))
     }
 
 
@@ -33,14 +42,41 @@ const CreateBookings = () => {
     return (
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">
 
-            <Select iconColor='transparent' placeholder='Choose Item To Create' className='p-2 w-3/12 border border-green-500 rounded-lg bg-white mb-7'>
-                <option value='option1'>Event Booking</option>
-                <option value='option2'>Client Booking</option>
-            </Select>
+            <form onSubmit={handleSubmit}>
 
-            <CustomForm formFields={formFields} formData={formData} onChange={handleChange} onSubmit={handleSubmit} />
+            <div className='ml-3'>
 
-            <Button type='submit' className='bg-green-200 py-2 px-6 text-lg rounded-lg hover:bg-green-500'>Save Item</Button>
+                <p className='text-2xl font-semibold mb-5'>Create Booking</p>
+
+                <Select
+                    name='booking'
+                    value={selectData.booking}
+                    onChange={handleSelect}
+                    iconColor='transparent'
+                    placeholder='Choose Item To Create'
+                    className='p-2 w-3/12 border border-green-500 rounded-lg bg-white mb-7'>
+                    <option value='Event Booking'>Event Booking</option>
+                    <option value='Client Booking'>Client Booking</option>
+                </Select>
+
+                <CustomForm
+                    formFields={formFields}
+                    formData={formData}
+                     onChange={handleChange}
+                    onSubmit={handleSubmit}
+                />
+
+                <Button
+                    type='submit'
+                    className='bg-green-200 py-2 px-6 text-lg rounded-lg hover:bg-green-500'>
+                    Save Item
+                </Button>
+
+            </div>
+
+            </form>
+
+
         </div>
     )
 }
