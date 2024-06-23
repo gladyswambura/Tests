@@ -1,10 +1,10 @@
 import React from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
 import Navbar from "components/navbar";
 import Sidebar from "components/sidebar";
 import Footer from "components/footer/Footer";
 import routes from "routes.js";
-import Channel from "views/admin/BotStudio/components/channel";
+// import Channel from "views/admin/BotStudio/components/channel";
 
 export const renderRoutes = (routes) => {
   return routes.map((route, idx) => {

@@ -9,6 +9,7 @@ import Messages from "./views/admin/Messages";
 import UpgradeMe from "./views/admin/UpgradeMe";
 import Profile from "./views/admin/profile";
 import SignIn from "./views/auth/SignIn";
+import Register from "views/auth/Register";
 
 // Bot Studio Components
 import AddBooking from "./views/admin/BotStudio/components/addBooking";
@@ -31,6 +32,7 @@ import {
   MdOutlineUpgrade,
 } from "react-icons/md";
 import Admin from "layouts/admin";
+
 
 const routes = [
   {
@@ -253,10 +255,10 @@ const routes = [
   {
     name: "Sign In",
     layout: "/auth",
-    path: "sign-in",
+    path: "signin",
     icon: <MdLock className="h-6 w-6" />,
     component: <SignIn />,
-  },
+  }
 ];
 
 export default routes;

@@ -3,7 +3,7 @@ import Axios from "axios";
 const axiosInstance = Axios.create({
   baseURL: "https://www.vassbot.com/apis", // Base URL for all requests
   headers: {
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxOTA1OTQzNCwianRpIjoiMDExMmQ3YzYtNDM0ZC00ZmI5LWJhMDUtZWE4MmFmMzEzMGM2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImdsYWR5c3dhaGl0bzdAZ21haWwuY29tIiwibmJmIjoxNzE5MDU5NDM0LCJjc3JmIjoiM2UwOThmMGMtNmZlNi00OWU1LThiOTItNzk3OWEwZTg2Y2UwIiwiZXhwIjoxNzE5MDYzMDM0fQ.PD0r3wgiHAkF9Vvhp_dCz9xbeL688KptRWKelwH19tQ",
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxOTEyNTI5MiwianRpIjoiY2Q0MTZjMjYtZDQ4NC00ZjBjLWEyYjYtYzFmOTQ3MzU3MGIzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImdsYWR5c3dhaGl0bzdAZ21haWwuY29tIiwibmJmIjoxNzE5MTI1MjkyLCJjc3JmIjoiMmFiYWE2NzctZTE3MC00NWVkLTllMDctYjVmZjU4MWEyN2JmIiwiZXhwIjoxNzE5MTI4ODkyfQ.Ffr_riKbFoz7cM1M75EIzGF8II58B5zdMVn5DU0RVPY",
     "Content-Type": "application/json",
     "Accept": "application/json, text/plain, */*",
   },
