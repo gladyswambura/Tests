@@ -2,9 +2,10 @@ import React from "react";
 import {  FormControl, FormLabel, Select, Textarea } from "@chakra-ui/react";
 import { Checkbox} from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import TabMenu from "./tabs";
 import './styles.css'
-import { Outlet } from "react-router-dom";
+
 
 
 const BotStudio = () => {
@@ -151,9 +152,16 @@ const BotStudio = () => {
               Has Numbered Choices
             </Checkbox>
           </GridItem>
+          <Button
+          type='submit'
+          className='bg-green-200 py-2 px-6 text-lg w-1/2  rounded-lg hover:bg-green-500'
+        >
+          Save Node
+        </Button>
+
         </Grid>
       </div>
-      {/* <Outlet /> */}
+     
     </div>
   );
 };
