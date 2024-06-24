@@ -11,22 +11,10 @@ import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 import { GoogleLogin } from "react-google-login";
 
 export default function Auth() {
-  const [username, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
-
-  const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
-      if (prop.layout === '/auth') {
-        return (
-          <Route path={`/${prop.path}`} element={prop.component} key={key} />
-        );
-      } else {
-        return null;
-      }
-    });
-  };
 
   const handleSignIn = async () => {
     try {
@@ -36,12 +24,8 @@ export default function Auth() {
       });
 
       const { access_token } = response.data;
+      cacheToken(access_token); // Cache token
 
-      if (rememberMe) {
-        localStorage.setItem("access_token", access_token);
-      } else {
-        sessionStorage.setItem("access_token", access_token);
-      }
       console.log("Login successful", access_token);
     } catch (err) {
       console.error("Login error:", err);
@@ -54,12 +38,8 @@ export default function Auth() {
     try {
       const res = await axios.post("/google-login", { tokenId });
       const { access_token } = res.data;
+      cacheToken(access_token); // Cache token
 
-      if (rememberMe) {
-        localStorage.setItem("access_token", access_token);
-      } else {
-        sessionStorage.setItem("access_token", access_token);
-      }
       console.log("Google login successful", access_token);
     } catch (err) {
       console.error("Google login error:", err);
@@ -72,7 +52,30 @@ export default function Auth() {
     setError("Failed to sign in with Google.");
   };
 
-  document.documentElement.dir = 'vassbot';
+  const cacheToken = (token) => {
+    if (rememberMe) {
+      localStorage.setItem("access_token", token); // Store token in localStorage
+    } else {
+      sessionStorage.setItem("access_token", token); // Store token in sessionStorage
+    }
+  };
+
+  const clearToken = () => {
+    localStorage.removeItem("access_token");
+    sessionStorage.removeItem("access_token");
+  };
+
+  const getRoutes = (routes) => {
+    return routes.map((prop, key) => {
+      if (prop.layout === "/auth") {
+        return <Route path={`/${prop.path}`} element={prop.component} key={key} />;
+      } else {
+        return null;
+      }
+    });
+  };
+
+  document.documentElement.dir = "vassbot";
   return (
     <div>
       <div className="relative float-right h-full min-h-screen w-full !bg-white dark:!bg-navy-900">
@@ -83,10 +86,7 @@ export default function Auth() {
               <div className="mb-auto flex flex-col pl-5 pr-5 md:pr-0 md:pl-12 lg:max-w-[48%] lg:pl-0 xl:max-w-full">
                 <Routes>
                   {getRoutes(routes)}
-                  <Route
-                    path="/"
-                    element={<Navigate to="/auth/sign-in" replace />}
-                  />
+                  <Route path="/" element={<Navigate to="/auth/sign-in" replace />} />
                 </Routes>
                 <div className="flex min-h-screen relative">
                   <div className="top-0 left-0 h-full w-full md:w-1/2 flex justify-center shadow-md xl:rounded-[50px] p-4 lg:max-w-md flex-1 flex-col ml-auto">
@@ -132,7 +132,7 @@ export default function Auth() {
                       id="username"
                       type="text"
                       value={username}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => setUsername(e.target.value)}
                     />
                     <InputField
                       variant="auth"
