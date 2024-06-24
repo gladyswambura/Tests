@@ -8,8 +8,7 @@ import ReportView from "./views/admin/ReportView";
 import Messages from "./views/admin/Messages";
 import UpgradeMe from "./views/admin/UpgradeMe";
 import Profile from "./views/admin/profile";
-import SignIn from "./views/auth/SignIn";
-import Register from "views/auth/Register";
+import SignIn from "./layouts/auth/index";
 
 // Bot Studio Components
 import AddBooking from "./views/admin/BotStudio/components/addBooking";

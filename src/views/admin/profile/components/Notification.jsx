@@ -20,7 +20,7 @@ function Notification() {
             for="checkbox1"
             className="text-base font-medium text-navy-700 dark:text-white"
           >
-            Item comment notifications
+            Company news notifications
           </label>
         </div>
 
@@ -30,7 +30,7 @@ function Notification() {
             for="checkbox2"
             className="text-base font-medium text-navy-700 dark:text-white"
           >
-            Buyer review notifications
+            Client news notifications
           </label>
         </div>
 
@@ -40,7 +40,7 @@ function Notification() {
             for="checkbox3"
             className="text-base font-medium text-navy-700 dark:text-white"
           >
-            Rating reminders notifications
+            Company news notifications
           </label>
         </div>
 
@@ -50,7 +50,7 @@ function Notification() {
             for="checkbox4"
             className="text-base font-medium text-navy-700 dark:text-white"
           >
-            Meetups near you notifications
+            Company news notifications
           </label>
         </div>
 
@@ -79,7 +79,7 @@ function Notification() {
             for="checkbox7"
             className="text-base font-medium text-navy-700 dark:text-white"
           >
-            Monthly product changes
+            Company news notifications
           </label>
         </div>
         <div className="mt-4 flex items-center gap-3">
@@ -88,7 +88,7 @@ function Notification() {
             for="checkbox8"
             className="text-base font-medium text-navy-700 dark:text-white"
           >
-            Subscribe to newsletter
+            Company news notifications
           </label>
         </div>
         <div className="mt-4 flex items-center gap-3">
@@ -97,7 +97,7 @@ function Notification() {
             for="checkbox8"
             className="text-base font-medium text-navy-700 dark:text-white"
           >
-            Email me when someone follows me
+            Company news notifications
           </label>
         </div>
       </div>
