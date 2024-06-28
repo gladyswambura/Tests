@@ -54,9 +54,9 @@ export default function Auth() {
 
   const cacheToken = (token) => {
     if (rememberMe) {
-      localStorage.setItem("access_token", token); // Store token in localStorage
+      localStorage.setItem("access_token", token); 
     } else {
-      sessionStorage.setItem("access_token", token); // Store token in sessionStorage
+      sessionStorage.setItem("access_token", token);
     }
   };
 
