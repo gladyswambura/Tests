@@ -8,7 +8,7 @@ import authImg from "assets/img/auth/auth.png";
 import { Routes, Route, Navigate } from "react-router-dom";
 import routes from "routes.js";
 import FixedPlugin from "components/fixedPlugin/FixedPlugin";
-import { GoogleLogin } from "react-google-login";
+import { GoogleLogin } from "@react-oauth/google";
 
 export default function Auth() {
   const [username, setUsername] = useState("");
@@ -99,11 +99,9 @@ export default function Auth() {
                     {error && <p className="mb-4 text-red-500">{error}</p>}
                     <GoogleLogin
                       clientId="944359357198-rkng9frt5okr78oobbf6jfefc17cn7sr.apps.googleusercontent.com"
-                      buttonText="Sign In with Google"
                       onSuccess={handleGoogleSuccess}
                       onFailure={handleGoogleFailure}
-                      cookiePolicy={"single_host_origin"}
-                      prompt="consent"
+                      scope="profile email"
                       render={(renderProps) => (
                         <div
                           onClick={renderProps.onClick}
