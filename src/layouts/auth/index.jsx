@@ -5,16 +5,18 @@ import { FcGoogle } from "react-icons/fc";
 import Checkbox from "components/checkbox";
 import Footer from "components/footer/FooterAuthDefault";
 import authImg from "assets/img/auth/auth.png";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import routes from "routes.js";
 import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 import { GoogleLogin } from "@react-oauth/google";
+import { setItem } from "utils/localStorage";
 
 export default function Auth() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate()
 
   const handleSignIn = async () => {
     try {
@@ -24,7 +26,9 @@ export default function Auth() {
       });
 
       const { access_token } = response.data;
-      cacheToken(access_token); // Cache token
+      // cacheToken(access_token); // Cache token
+      setItem("access_token", access_token)
+      navigate("/admin/default")
 
       console.log("Login successful", access_token);
     } catch (err) {
