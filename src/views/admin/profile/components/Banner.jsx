@@ -1,25 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import avatar from "assets/img/avatars/avatar1.png.jpg";
 import banner from "assets/img/profile/banner.png";
 import Card from "components/card";
 import { TiEdit } from "react-icons/ti";
 import { Button } from "@chakra-ui/react";
 import EditProfile from "./editProfile";
-
-
+import ProfileData from "./profileData";
 
 
 const Banner = () => {
 
   const [modalOpen, setModalOpen] = useState(false)
+  const [profileForm, setProfileForm] = useState(ProfileData)
+  const [currentProfile, setCurrentProfile] = useState({});
 
-  const handleOpenEditModal = () => { setModalOpen(true) }
+// fetch changes from local storage
+  useEffect(() => {
+    const storedProfiles = localStorage.getItem('profiles');
+    if (storedProfiles) {
+      setProfileForm(JSON.parse(storedProfiles))
+    } else {
+      setProfileForm(ProfileData)
+    }
+  })
+
+  const handleOpenEditModal = (profile) => {
+    setCurrentProfile(profile)
+    setModalOpen(true)
+    console.log('profile passed to function:', profile);
+  }
+
   const handleCloseEditModal = () => { setModalOpen(false) }
+
+  const handleSave = (updatedProfile) => {
+    const updatedProfiles = profileForm.map((profile) =>
+      profile.id === updatedProfile.id ? updatedProfile : profile
+    );
+    setProfileForm(updatedProfiles);
+    localStorage.setItem('profiles', JSON.stringify(updatedProfiles))
+    setModalOpen(false);
+  };
 
   return (
     <Card extra={"items-start w-full h-full p-[20px] bg-cover"}>
-
-      {/* <EditProfile isOpen={modalOpen} onClose={handleCloseEditModal}/> */}
+      {/* Edit Modal */}
+      <EditProfile
+        isOpen={modalOpen}
+        onClose={handleCloseEditModal}
+        currentProfile={currentProfile}
+        onSave={handleSave} />
 
       {/* Background and profile---IMAGE url OF THE SIGNED IN PERSON ---CALL FROM THE API*/}
       <div
@@ -35,55 +64,41 @@ const Banner = () => {
 
       </div>
 
-      {/* Name and position */}
-      <div className="mt-14">
-        <div className=" flex flex-col items-center text-navy-700 dark:text-white">
-          {/* {{NAME OF THE SIGN INNED PERSON}} */}
-          <p className="text-xl font-semibold">Jane Doe</p>
-          <p className="text-lg font-medium">janedoe@example.com</p>
-          <p className="text-lg font-medium">Project Manager at Vassbot</p>
-        </div>
-        <div>
-          {/* <p className="text-base font-normal text-gray-600">ROLE OF THE SIGNED IN PERSON</p> */}
-          {/* <h4 className="text-xl font-bold text-navy-700 dark:text-white">
-            General Information
-          </h4> */}
+      {profileForm.map((profile, i) => (
+        //  Name. email and position 
+        <div className="mt-14" key={i}>
 
-          {/* <p className="mt-2 text-base ">
-            I am a project manager */}
+          <div className=" flex flex-col items-center text-navy-700 dark:text-white">
+            {/* {{NAME OF THE SIGN INNED PERSON}}  */}
+            <p className="text-xl font-semibold">{profile.fullname}</p>
+            <p className="text-lg font-medium">{profile.email}</p>
+            <p className="text-lg font-medium">{profile.role} at {profile.company}</p>
+          </div>
+          <div>
+            {/* <p className="mt-2 text-base ">
+          I am a project manager */}
             {/* {description pulled from the backend} */}
-          {/* </p> */}
+            {/* </p> */}
+          </div>
+
+
+          <div className="rounded-xl border bg-blue-50/40 backdrop-blur my-2 p-1">
+            <p className="text-lg font-bold mx-2">
+              {/* About the person pulled from backend */}
+              About
+            </p>
+
+            <p className="text-base mx-2">{profile.about}</p>
+
+          </div>
+          <div className="flex justify-center items-center">
+            {/* EDIT pROFILE BUTTON --SHOULD BRING A POP UP EDIT FORM THAT CAN BE CLOSED*/}
+            <Button onClick={() => handleOpenEditModal(profile)} className="bg-blue-50 backdrop-blur py-1.5 px-5 mt-2 text-lg rounded-lg hover:bg-blue-200"> Edit Profile </Button>
+          </div>
+
         </div>
 
-
-        <div className="rounded-xl border bg-blue-50/40 backdrop-blur my-2 p-1">
-          <p className="text-lg font-bold mx-2">
-            {/* About the person pulled from backend */}
-            About
-          </p>
-
-          <p className="text-base mx-2">
-            Sit nulla est ex deserunt exercitation anim occaecat.
-            Nostrud ullamco deserunt aute id consequat veniam
-            incididunt duis in sint irure nisi. Mollit officia
-            cillum Lorem ullamco minim nostrud elit officia tempor esse quis.
-          </p>
-
-        </div>
-
-
-        <EditProfile isOpen={modalOpen} onClose={handleCloseEditModal} />
-
-      </div>
-
-      <div className="flex justify-center items-center">
-        <Button onClick={handleOpenEditModal} className="bg-blue-50 py-1.5 px-5 mt-2 text-lg rounded-lg hover:bg-blue-200"> Edit Profile </Button>
-      </div>
-
-
-
-
-      {/* EDIT pROFILE BUTTON --SHOULD BRING A POP UP EDIT FORM THAT CAN BE CLOSED*/}
+      ))}
     </Card>
   );
 };
