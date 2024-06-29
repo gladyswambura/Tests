@@ -3,6 +3,7 @@ import AxiosInstance from "../../../axiosConfig";
 import ReportTable from "./components/ReportTable";
 import { columnsDataReport } from "./variables/columnsData";
 import axios from "axios";
+import { getItem } from "utils/localStorage";
 
 const Tables = () => {
   const [tableDataReport, setTableData] = useState([]);
@@ -18,7 +19,8 @@ const Tables = () => {
         order_by: "desc"
       };
   
-      const response = await AxiosInstance.get('/retrieve-report', {
+      const token = getItem("access_token")
+      const response = token && await AxiosInstance.get('/retrieve-report', {
         params: requestBody,
         maxRedirects: 0, 
         validateStatus: status => status === 308
