@@ -13,6 +13,7 @@ import TaskCard from "views/admin/default/components/TaskCard";
 import tableDataCheck from "./variables/tableDataCheck.json";
 import AddNodeForm from '../../../components/nodes/add-node'; 
 import AxiosInstance from "../../../axiosConfig";
+import { getItem } from "utils/localStorage";
 // import AddBulkNodeForm from '../../../components/add-bulk-node';
 // import ReviewNodesForm from '../../../components/review-nodes';
 
@@ -24,7 +25,8 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await AxiosInstance.get("/dashboard-stats"); 
+        const token = getItem("access_token")
+        const response = token && await AxiosInstance(token).get("/dashboard-stats"); 
         console.log("Response:", response.data);
         setBotData(response.data);
       } catch (error) {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ColumnsTable from "./components/ColumnsTable";
 import AxiosInstance from "../../../axiosConfig";
+import { getItem } from "utils/localStorage";
 
 const Tables = () => {
   const [visitorsData, setVisitorsData] = useState([]);
@@ -9,7 +10,8 @@ const Tables = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await AxiosInstance.get("/fetch-visitors/100"); 
+        const token = getItem("access_token")
+        const response = token && await AxiosInstance(token).get("/fetch-visitors/100"); 
         setVisitorsData(response.data);
       } catch (error) {
         setError(error.message);

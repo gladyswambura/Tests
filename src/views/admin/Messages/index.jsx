@@ -4,6 +4,7 @@ import {
 import DevelopmentTable from "./components/DevelopmentTable";
 import AxiosInstance from "../../../axiosConfig";
 import React, { useState, useEffect } from "react";
+import { getItem } from "utils/localStorage";
 
 
 const Tables = () => {
@@ -14,7 +15,8 @@ const Tables = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await AxiosInstance.get("/fetch-messages/1000"); 
+        const token = getItem("access_token")
+        const response = token && await AxiosInstance(token).get("/fetch-messages/1000"); 
         setTableData(response.data);
       } catch (error) {
         console.error("Error fetching data: ", error);

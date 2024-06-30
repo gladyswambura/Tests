@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "../../axiosConfig";
 import InputField from "components/fields/InputField";
 import { FcGoogle } from "react-icons/fc";
@@ -10,6 +10,8 @@ import routes from "routes.js";
 import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 import { GoogleLogin } from "@react-oauth/google";
 import { setItem } from "utils/localStorage";
+import { getItem } from "utils/localStorage";
+import axiosInstance from "../../axiosConfig";
 
 export default function Auth() {
   const [username, setUsername] = useState("");
@@ -20,7 +22,7 @@ export default function Auth() {
 
   const handleSignIn = async () => {
     try {
-      const response = await axios.post("/login", {
+      const response = await axiosInstance("").post("/login", {
         username,
         password,
       });
@@ -78,6 +80,14 @@ export default function Auth() {
       }
     });
   };
+
+  useEffect(() => {
+    const token = getItem("access_token")
+
+    if(token){
+      navigate("/admin/default")
+    }
+  })
 
   document.documentElement.dir = "vassbot";
   return (

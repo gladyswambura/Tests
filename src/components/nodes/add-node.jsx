@@ -1,13 +1,15 @@
 import React, { useState} from "react";
 import { useForm } from "react-hook-form";
 import AxiosInstance from "../../axiosConfig"
+import { getItem } from "utils/localStorage";
 const AddNodeForm = () => {
   const [activeTab, setActiveTab] = useState("content"); 
   const { register, handleSubmit, formState: { errors } } = useForm(); 
 
   const onSubmit = async (data) => {
     try {
-      const response = await AxiosInstance.post("/node-creation");
+      const token = getItem("access_token")
+      const response = token && await AxiosInstance(token).post("/node-creation");
       console.log(response.data);
       alert("Your node has been saved.");
     } catch (error) {

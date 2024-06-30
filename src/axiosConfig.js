@@ -1,10 +1,10 @@
 import Axios from "axios";
-import { getItem } from "utils/localStorage";
 
-const axiosInstance = Axios.create({
+
+const axiosInstance = (token) =>  Axios.create({
   baseURL: "https://www.vassbot.com/apis", // Base URL for all requests
   headers: {
-    Authorization: `Bearer ${getItem("access_token")}`,
+    Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
     "Accept": "application/json, text/plain, */*",
   },
